@@ -53,6 +53,13 @@ function handleClick(event) {
         let currentTime = new Date();
         const deltaTime = userDate - currentTime;
 
+        const timer = convertMs(deltaTime);
+
+        daysId.textContent = addLeadingZero(timer.days);
+        hoursId.textContent = addLeadingZero(timer.hours);
+        minsId.textContent = addLeadingZero(timer.minutes);
+        secsId.textContent = addLeadingZero(timer.seconds);
+
         if (deltaTime <= 0) {
             clearInterval(timerId);
             daysId.textContent = '00';
@@ -61,13 +68,6 @@ function handleClick(event) {
             secsId.textContent = '00';
             input.disabled = false;
         };
-
-        const timer = convertMs(deltaTime);
-
-        daysId.textContent = addLeadingZero(timer.days);
-        hoursId.textContent = addLeadingZero(timer.hours);
-        minsId.textContent = addLeadingZero(timer.minutes);
-        secsId.textContent = addLeadingZero(timer.seconds);
 
     }, 1000); 
 };
